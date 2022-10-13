@@ -1,7 +1,25 @@
 /* 1. Get from computer a random choice of "Rock", "Paper", "Scissors" */
-    /* 1.1 Generate random number between one and three */
-    /* 1.2 Associate numer with 0 = "Rock"; 1 ="Paper" ; 2 = "Scissors" */
+function getComputerChoice () {
+    /* 1.1 Generate random integer between one and three */ 
+    let randomInteger = Math.floor(Math.random()*3 + 1);
+    console.log(randomInteger);   
+    /* 1.2 Associate number with 1 = "Rock"; 2 ="Paper" ; 3 = "Scissors" */
+    let computerChoice;
+    switch(randomInteger) {
+    case 1:
+        computerChoice = "rock";
+        break;
+    case 2:
+        computerChoice = "paper";
+        break;
+    case 3:
+        computerChoice = "scissors";
+        break;   
+    }
     /* 1.3 Return result */
+    return computerChoice;
+}
+console.log (getComputerChoice());
 /* 2. Get from user a random choice of "Rock", "Paper", "Scissors" */
     /* 2.1 Prompt user for input */
     /* 2.2 Clean up user input and store in variable */
