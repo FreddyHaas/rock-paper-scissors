@@ -13,13 +13,13 @@ function getComputerChoice () {
         computerChoice = "paper";
         break;
     case 3:
-        computerChoice = "scissors";
+        computerChoice = "scissor";
         break;   
     }
     /* 1.3 Return result */
     return computerChoice;
 }
-console.log (getComputerChoice());
+let computerSelection = getComputerChoice();
 
 /* 2. Get from user a random choice of "Rock", "Paper", "Scissors" */
 function getPlayerSelection () {
@@ -34,10 +34,24 @@ function getPlayerSelection () {
     /* 2.3 Return result */
     return cleanUserInput;
 }
-console.log (getPlayerSelection());
+let playerSelection = getPlayerSelection();
 
 /* 3. Compare user's vs. computer's choice, update counts for user and computer, output winner */
+function playRound (playerSelection, computerSelection) {  
     /* 3.1 If user's choice = computer's choice return draw and do not update count */
+    if (playerSelection === computerSelection) {
+        return `Draw! You both chose ${playerSelection}`;
+    }
     /* 3.2 User (u) and computer (c): If u = "Paper" & c = "Rock" OR u = "Scissor" & c = "Paper" OR u ="Rock" & "Scissor" -> return player wins and update count*/
+    else if (playerSelection === "paper" & computerSelection === "rock" || playerSelection === "scissor" & computerSelection === "paper" || playerSelection === "rock" & computerSelection === "scissor") {
+        return `You win! ${playerSelection} beats ${computerSelection}.`;
+    }
     /* 3.3 Else return computer wins and update count */
+    else {
+        return `You lose! ${computerSelection} beats ${playerSelection}.`;
+    }
+}
+
+console.log(playRound(playerSelection, computerSelection));
+
 /* 4. Repeat steps one to three until user or computer reaches five wins and declare overall winner */
